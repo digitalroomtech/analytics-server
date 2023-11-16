@@ -1,0 +1,23 @@
+{
+    "name": "digitalroom/analytics-server",
+    "description": "Analitycs Server Package",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Digitalroom\\AnalyticsServer\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Digital Room"
+        }
+    ],
+    "require": {},
+    "scripts": {
+        "post-install-cmd": [
+            "php artisan make:controller MyController",
+            "php artisan make:migration create_my_table --create=my_table",
+            "echo 'Route::resource('/my', 'MyController');' >> routes/web.php"
+        ]
+    }
+}
