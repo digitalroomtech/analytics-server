@@ -4,7 +4,7 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Digitalroom\\AnalyticsServer\\": "src/Commands"
+            "Digitalroom\\AnalyticsServer\\": "src/"
         }
     },
     "authors": [
