@@ -3,7 +3,7 @@
 namespace Digitalroom\AnalyticsServer;
 
 use Illuminate\Support\ServiceProvider;
-use Digitalroom\AnalyticsServer\Commands\InstallAnalyticsServer;
+use Commands\InstallAnalyticsServer;
 
 class AnalyticsServerServiceProvider extends ServiceProvider
 {

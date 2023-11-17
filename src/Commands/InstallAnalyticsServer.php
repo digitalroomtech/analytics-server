@@ -1,6 +1,6 @@
 <?php
 
-namespace Digitalroom\AnalyticsServer\Commands;
+namespace Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
