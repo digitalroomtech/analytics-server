@@ -2,10 +2,9 @@
 
 namespace Digitalroom\AnalyticsServer;
 
-use Illuminate\Support\ServiceProvider;
 use Digitalroom\AnalyticsServer\Commands\InstallAnalyticsServer;
 
-class AnalyticsServerServiceProvider extends ServiceProvider
+class AnalyticsServerServiceProvider extends Command
 {
     public function boot()
     {
