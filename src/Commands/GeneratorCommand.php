@@ -1,6 +1,7 @@
 <?php
 
 namespace Digitalroom\AnalyticsServer\Commands;
+
 use Ibex\CrudGenerator\ModelGenerator;
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
@@ -95,7 +96,6 @@ abstract class GeneratorCommand extends Command
      */
     public function __construct(Filesystem $files)
     {
-        parent::__construct();
 
         $this->files = $files;
         $this->unwantedColumns = config('crud.model.unwantedColumns', $this->unwantedColumns);
@@ -289,7 +289,9 @@ abstract class GeneratorCommand extends Command
         ]);
 
         return str_replace(
-            array_keys($replace), array_values($replace), $this->getStub("views/{$type}")
+            array_keys($replace),
+            array_values($replace),
+            $this->getStub("views/{$type}")
         );
     }
 

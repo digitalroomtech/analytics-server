@@ -19,11 +19,11 @@ class InstallAnalyticsServer extends GeneratorCommand
         Artisan::call('make:migration', ['name' => 'create_event_table', '--create' => 'events']);
 
         // Copiar la plantilla del controlador a la ubicación correcta
-        File::copy(__DIR__.'/../stubs/EventController.stub', app_path('Http/Controllers/EventController.php'));
+        File::copy(__DIR__ . '/../stubs/EventController.stub', app_path('Http/Controllers/EventController.php'));
 
         // Copiar la plantilla de la migración a la ubicación correcta
-        $fileName = date('Y_m_d_His').'_create_event_table.php';
-        File::copy(__DIR__.'/../stubs/create_event_table.stub', database_path("migrations/{$fileName}"));
+        $fileName = date('Y_m_d_His') . '_create_event_table.php';
+        File::copy(__DIR__ . '/../stubs/create_event_table.stub', database_path("migrations/{$fileName}"));
 
         // Agregar la ruta al archivo routes/web.php
         File::append(base_path('routes/web.php'), "Route::prefix('/event')->group(function () { Route::post('/create',[App\Http\Controllers\EventController::class,'createEvent']); });\n");
