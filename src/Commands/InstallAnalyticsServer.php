@@ -5,10 +5,21 @@ namespace Digitalroom\AnalyticsServer\Commands;
 use Digitalroom\AnalyticsServer\Commands\GeneratorCommand;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Filesystem\Filesystem;
+use Illuminate\Console\Command;
 
-class InstallAnalyticsServer extends GeneratorCommand
+class InstallAnalyticsServer extends Command
 {
     protected $signature = 'analytics-server:install';
+
+    protected $filesystem;
+
+    public function __construct(Filesystem $filesystem)
+    {
+        parent::__construct();
+        $this->filesystem = $filesystem;
+    }
+    
 
     public function handle()
     {
