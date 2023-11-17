@@ -104,49 +104,7 @@ abstract class GeneratorCommand extends Command
         $this->layout = config('crud.layout', $this->layout);
     }
 
-    /**
-     * Generate the controller.
-     *
-     * @return $this
-     */
-    abstract protected function buildController();
 
-    /**
-     * Generate the Model.
-     *
-     * @return $this
-     */
-    abstract protected function buildModel();
-
-    /**
-     * Generate the views.
-     *
-     * @return $this
-     */
-    abstract protected function buildViews();
-
-    /**
-     * Build the directory if necessary.
-     *
-     * @param string $path
-     *
-     * @return string
-     */
-    protected function makeDirectory($path)
-    {
-        if (!$this->files->isDirectory(dirname($path))) {
-            $this->files->makeDirectory(dirname($path), 0777, true, true);
-        }
-
-        return $path;
-    }
-
-    /**
-     * Write the file/Class.
-     *
-     * @param $path
-     * @param $content
-     */
     protected function write($path, $content)
     {
         $this->files->put($path, $content);
@@ -386,64 +344,7 @@ abstract class GeneratorCommand extends Command
      *
      * @return array
      */
-    protected function modelReplacements()
-    {
-        $properties = '*';
-        $rulesArray = [];
-        $softDeletesNamespace = $softDeletes = '';
-
-        foreach ($this->getColumns() as $value) {
-            $properties .= "\n * @property $$value->Field";
-
-            if ($value->Null == 'NO') {
-                $rulesArray[$value->Field] = 'required';
-            }
-
-            if ($value->Field == 'deleted_at') {
-                $softDeletesNamespace = "use Illuminate\Database\Eloquent\SoftDeletes;\n";
-                $softDeletes = "use SoftDeletes;\n";
-            }
-        }
-
-        $rules = function () use ($rulesArray) {
-            $rules = '';
-            // Exclude the unwanted rulesArray
-            $rulesArray = Arr::except($rulesArray, $this->unwantedColumns);
-            // Make rulesArray
-            foreach ($rulesArray as $col => $rule) {
-                $rules .= "\n\t\t'{$col}' => '{$rule}',";
-            }
-
-            return $rules;
-        };
-
-        $fillable = function () {
-
-            /** @var array $filterColumns Exclude the unwanted columns */
-            $filterColumns = $this->getFilteredColumns();
-
-            // Add quotes to the unwanted columns for fillable
-            array_walk($filterColumns, function (&$value) {
-                $value = "'" . $value . "'";
-            });
-
-            // CSV format
-            return implode(',', $filterColumns);
-        };
-
-        $properties .= "\n *";
-
-        list($relations, $properties) = (new ModelGenerator($this->table, $properties, $this->modelNamespace))->getEloquentRelations();
-
-        return [
-            '{{fillable}}' => $fillable(),
-            '{{rules}}' => $rules(),
-            '{{relations}}' => $relations,
-            '{{properties}}' => $properties,
-            '{{softDeletesNamespace}}' => $softDeletesNamespace,
-            '{{softDeletes}}' => $softDeletes,
-        ];
-    }
+  
 
     /**
      * Get the desired class name from the input.
