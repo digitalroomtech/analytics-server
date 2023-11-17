@@ -1,0 +1,17 @@
+{
+    "name": "digitalroom/analytics-server",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Digitalroom\\AnalyticsServer\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "DigitalRoom"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
