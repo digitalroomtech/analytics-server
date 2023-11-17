@@ -1,12 +1,12 @@
 <?php
 
-namespace Digitalroom\AnalyticsServer;
+namespace  Digitalroom\AnalyticsServer\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Artisan;
 
-class InstallAnalyticsServer extends Command
+class InstallAnalyticsServer extends GeneratorCommand
 {
     protected $signature = 'analytics-server:install';
 

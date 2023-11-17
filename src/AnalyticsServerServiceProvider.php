@@ -3,8 +3,9 @@
 namespace Digitalroom\AnalyticsServer;
 
 use Digitalroom\AnalyticsServer\Commands\InstallAnalyticsServer;
+use Illuminate\Support\ServiceProvider;
 
-class AnalyticsServerServiceProvider extends Command
+class AnalyticsServerServiceProvider extends ServiceProvider
 {
     public function boot()
     {
@@ -13,5 +14,16 @@ class AnalyticsServerServiceProvider extends Command
                 InstallAnalyticsServer::class,
             ]);
         }
+    }
+
+    
+    /**
+     * Register services.
+     *
+     * @return void
+     */
+    public function register()
+    {
+        //
     }
 }
