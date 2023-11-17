@@ -1,5 +1,5 @@
 {
-    "name": "digitalroom/analytics-server",
+    "name": "digitalroomtech/analytics-server",
     "type": "library",
     "license": "MIT",
     "autoload": {
