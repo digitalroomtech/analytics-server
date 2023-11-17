@@ -13,3 +13,7 @@ Luego utiliza
 php artisan analytics-server:install
 
 ```
+
+```phpg
+    php artisan analytics-server:install
+```
