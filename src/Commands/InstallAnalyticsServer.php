@@ -32,6 +32,10 @@ class InstallAnalyticsServer extends Command
         // Copiar la plantilla del controlador a la ubicación correcta
         File::copy(__DIR__ . '/../stubs/EventController.stub', app_path('Http/Controllers/EventController.php'));
 
+        
+        // Copiar la plantilla del Modelo a la ubicación correcta
+        File::copy(__DIR__ . '/../stubs/Event.stub', app_path('Models/Event.php'));
+
         // Copiar la plantilla de la migración a la ubicación correcta
         $fileName = date('Y_m_d_His') . '_create_event_table.php';
         File::copy(__DIR__ . '/../stubs/create_event_table.stub', database_path("migrations/{$fileName}"));
