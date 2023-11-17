@@ -1,7 +1,6 @@
 <?php
 
-namespace Ibex\CrudGenerator\Commands;
-
+namespace Digitalroom\AnalyticsServer\Commands;
 use Ibex\CrudGenerator\ModelGenerator;
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;

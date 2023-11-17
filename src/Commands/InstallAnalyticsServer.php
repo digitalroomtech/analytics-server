@@ -1,8 +1,8 @@
 <?php
 
-namespace  Digitalroom\AnalyticsServer\Commands;
+namespace Digitalroom\AnalyticsServer\Commands;
 
-use Illuminate\Console\Command;
+use Digitalroom\AnalyticsServer\Commands\GeneratorCommand;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Artisan;
 
