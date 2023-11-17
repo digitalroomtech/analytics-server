@@ -18,8 +18,8 @@
     "require": {},
     "scripts": {
         "post-install-cmd": [
-            "@php -r \"copy('src/EventController.php', 'app/Http/Controllers/EventController.php');\"",
-            "@php -r \"copy('src/migrations/create_event_table.php', 'database/migrations/2023_12_01_000000_create_event_table.php');\"",
+            "php artisan make:controller EventController",
+            "php artisan make:migration create_event_table --create=events",
             "echo \"Route::prefix('/event')->group(function () { Route::post('/create',[\\\\App\\\\Http\\\\Controllers\\\\EventController::class,'createEvent']); });\" >> routes/web.php"
         ]
     }
