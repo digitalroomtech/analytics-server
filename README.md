@@ -1,4 +1,4 @@
-# Título del proyecto
+# Analytics Server Digital Room Package
 
 Breve descripción del proyecto.
 
