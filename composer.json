@@ -2,6 +2,7 @@
     "name": "digitalroom/analytics-server",
     "description": "Analitycs Server Package",
     "type": "library",
+    "minimum-stability": "dev",
     "autoload": {
         "psr-4": {
             "Digitalroom\\AnalyticsServer\\": "src/"
