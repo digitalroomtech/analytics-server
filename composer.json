@@ -2,7 +2,9 @@
     "name": "digitalroom/analytics-server",
     "description": "Analitycs Server Package",
     "type": "library",
+    "version": "1.0.0",
     "minimum-stability": "dev",
+    "license": "MIT",
     "autoload": {
         "psr-4": {
             "Digitalroom\\AnalyticsServer\\": "src/"
